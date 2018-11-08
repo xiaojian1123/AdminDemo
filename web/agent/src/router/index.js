@@ -9,7 +9,7 @@ import OperatorLog from '../components/index/operator/log/Index';
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -50,4 +50,18 @@ export default new Router({
       ]
     }
   ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/') {
+    next();
+  } else {
+    if (Boolean(sessionStorage.getItem('admin'))) {
+      next();
+    } else {
+      next('/');
+    }
+  }
+});
+
+export default router;
