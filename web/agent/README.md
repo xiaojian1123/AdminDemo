@@ -1,6 +1,5 @@
 # agent
 
-> 胖子的项目
 
 ## Build Setup
 
